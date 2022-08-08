@@ -48,9 +48,9 @@ class MainActivity : ComponentActivity() {
 fun Greeting(modifier: Modifier = Modifier) {
 Column(modifier) {
     Image(
-        painterResource(id = R.drawable.p1food ),
+        painter = painterResource(id = R.drawable.p1food ),
         contentDescription = null,
-        contenScale = ContentScale.Crop,
+        contentScale = ContentScale.Crop,
         modifier = Modifier.size(88.dp).clip(CircleShape)
     )
     Text(
