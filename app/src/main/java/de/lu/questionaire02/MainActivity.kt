@@ -9,9 +9,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -22,9 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.lu.questionaire02.ui.theme.Questionaire02Theme
@@ -64,8 +62,8 @@ fun StartScreen(modifier: Modifier = Modifier) {
 private val topMenuData = listOf(
     R.drawable.p1plastic to R.string.Plastic,
     R.drawable.p1food to R.string.food,
-    R.drawable.basicIncome to R.string.basicIncome,
-    R.drawable.p1climateWarmin to R.string.climateWarming,
+    R.drawable.basicincome to R.string.basicIncome,
+    R.drawable.p1climatewarming to R.string.climateWarming,
     R.drawable.p1humanrights to R.string.humanrights,
     R.drawable.p1desertification to R.string.desertification,
     R.drawable.p1recycling to R.string.recycling,
@@ -75,13 +73,17 @@ private val topMenuData = listOf(
 ).map{DrawableStringPair(it.first, it.second)}
 
 
-@Composable
+//private val TESTII:DrawableStringPair = DrawableStringPair(R.drawable.p1trees, R.string.Trees)
+//private val myDrawableStringPair:DrawableStringPair2 = DrawableStringPair2(R.drawable.p1trees, R.string.Trees)
+
+
+        @Composable
 fun TopMenuLazyRow(
     modifier: Modifier = Modifier
 ){
     LazyRow(modifier){
         items(topMenuData){item->
-            TopMenuItem(drawable = item.drawble, text = item.text)
+            TopMenuItem(drawable = item.drawable, text = item.text)
         }
     }
 
