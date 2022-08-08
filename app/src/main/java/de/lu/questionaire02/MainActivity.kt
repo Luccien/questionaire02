@@ -35,12 +35,31 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Column(modifier = Modifier.fillMaxSize()) {
-                        Greeting()
-                        //FavoriteCollectionCard()
+                       StartScreen()
+
                     }
                 }
             }
+        }
+    }
+
+@Preview(showBackground = true)
+@Composable
+fun StartScreen(modifier: Modifier = Modifier) {
+    Box(
+        modifier = Modifier
+            //.background(DeepBlue)
+            .fillMaxSize()
+    ) {
+
+        Column(
+            //horizontalAlignment = Alignment.CenterHorizontally,
+            //modifier = modifier.fillMaxSize()
+        )
+        {
+
+            TopMenu()
+            MiddleMenu()
         }
     }
 }
@@ -48,10 +67,12 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Greeting(modifier: Modifier = Modifier) {
-Column(
-    horizontalAlignment = Alignment.CenterHorizontally,
-    modifier = modifier.fillMaxSize()) {
+fun TopMenu(modifier: Modifier = Modifier) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        //modifier = modifier.fillMaxSize() // this will cause error with following elements
+        )
+    {
     Image(
         painter = painterResource(id = R.drawable.p1food ),
         contentDescription = null,
@@ -66,17 +87,23 @@ Column(
         modifier = Modifier
             .paddingFromBaseline(top = 24.dp, bottom = 8.dp)
     )
-    FavoriteCollectionCard()
+    //FavoriteCollectionCard()
 }
 
 }
-
+@Composable
+fun MiddleMenu222(modifier: Modifier = Modifier) {
+    Text(
+        "stringResource()llllllllllllllllllllllllllllll"
+    )
+}
 
 @Composable
-fun FavoriteCollectionCard(modifier: Modifier = Modifier) {
+fun MiddleMenu(modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = modifier.fillMaxSize()) {
+        //modifier = modifier.fillMaxSize()
+    ) {
         Surface(
             modifier = Modifier.fillMaxSize()
         ) {
@@ -95,12 +122,3 @@ fun FavoriteCollectionCard(modifier: Modifier = Modifier) {
 }
 
 
-
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    Questionaire02Theme {
-        Greeting()
-    }
-}
