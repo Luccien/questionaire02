@@ -54,15 +54,16 @@ fun StartScreen(modifier: Modifier = Modifier) {
         )
         {
             TopMenuLazyRow()
-            //TopMenu(drawable = R.drawable.p1food, text = R.string.windPower)
-            MiddleMenu(drawable = R.drawable.p1plastic, text = R.string.windPower)
+            MiddleMenuLazyGridRow()// TODO 45 minutes on video
+        //TopMenu(drawable = R.drawable.p1food, text = R.string.windPower)
+            //MiddleMenu(drawable = R.drawable.p1plastic, text = R.string.windPower)
         }
     }
 
 private val topMenuData = listOf(
     R.drawable.p1plastic to R.string.Plastic,
     R.drawable.p1food to R.string.food,
-    R.drawable.basicincome to R.string.basicIncome,
+    //R.drawable.basicincome to R.string.basicIncome,
     R.drawable.p1climatewarming to R.string.climateWarming,
     R.drawable.p1humanrights to R.string.humanrights,
     R.drawable.p1desertification to R.string.desertification,
@@ -71,6 +72,20 @@ private val topMenuData = listOf(
     R.drawable.p1water to R.string.water,
     R.drawable.p1windpower to R.string.windPower
 ).map{DrawableStringPair(it.first, it.second)}
+
+private val middleMenuData = listOf(
+    R.drawable.p1plastic to R.string.Plastic,
+    R.drawable.p1food to R.string.food,
+    //R.drawable.basicincome to R.string.basicIncome,
+    R.drawable.p1climatewarming to R.string.climateWarming,
+    R.drawable.p1humanrights to R.string.humanrights,
+    R.drawable.p1desertification to R.string.desertification,
+    R.drawable.p1recycling to R.string.recycling,
+    R.drawable.p1trees to R.string.Trees,
+    R.drawable.p1water to R.string.water,
+    R.drawable.p1windpower to R.string.windPower
+).map{DrawableStringPair(it.first, it.second)}
+
 
 
 
@@ -119,7 +134,30 @@ fun TopMenuItem(@DrawableRes drawable: Int,
 
 
 @Composable
-fun MiddleMenu(
+fun HomeSection(
+    @StringRes title: Int,
+    modifier: Modifier = Modifier,
+    content: @Composable ()-> Unit
+){
+    Column(modifier){
+        Text( stringResource(id = title))
+        content()
+    }
+
+}
+
+
+
+@Composable
+fun MiddleMenuLazyGridRow(){
+
+
+    //middleMenuData
+}
+
+
+@Composable
+fun MiddleMenuItem(
     @DrawableRes drawable: Int,
     @StringRes text: Int,
     modifier: Modifier = Modifier) {
