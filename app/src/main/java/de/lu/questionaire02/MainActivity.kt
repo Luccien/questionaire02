@@ -7,6 +7,8 @@ import androidx.compose.ui.res.painterResource
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
@@ -53,8 +55,8 @@ fun StartScreen(modifier: Modifier = Modifier) {
         )
         {
 
-            TopMenu()
-            MiddleMenu()
+            TopMenu(drawable = R.drawable.p1food, text = R.string.windPower)
+            MiddleMenu(drawable = R.drawable.p1plastic, text = R.string.windPower)
         }
     }
 
@@ -62,14 +64,16 @@ fun StartScreen(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun TopMenu(modifier: Modifier = Modifier) {
+fun TopMenu(@DrawableRes drawable: Int,
+            @StringRes text: Int,
+            modifier: Modifier = Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         //modifier = modifier.fillMaxSize() // this will cause error with following elements
         )
     {
     Image(
-        painter = painterResource(id = R.drawable.p1food ),
+        painter = painterResource(id = drawable),//R.drawable.p1food ),
         contentDescription = null,
         contentScale = ContentScale.Crop,
         modifier = Modifier
@@ -77,7 +81,7 @@ fun TopMenu(modifier: Modifier = Modifier) {
             .clip(CircleShape)
     )
     Text(
-        stringResource(id = R.string.windPower),
+        stringResource(id = text),//R.string.windPower),
         //style = MaterialTheme.typography.h3,
         modifier = Modifier
             .paddingFromBaseline(top = 24.dp, bottom = 8.dp)
@@ -89,7 +93,10 @@ fun TopMenu(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun MiddleMenu(modifier: Modifier = Modifier) {
+fun MiddleMenu(
+    @DrawableRes drawable: Int,
+    @StringRes text: Int,
+    modifier: Modifier = Modifier) {
     /*Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         //modifier = modifier.fillMaxSize()
@@ -102,14 +109,14 @@ fun MiddleMenu(modifier: Modifier = Modifier) {
                 verticalAlignment = Alignment.CenterVertically,
                 modifier = Modifier.width(170.dp)){
                 Image(
-                    painter = painterResource(id = R.drawable.p1plastic),
+                    painter = painterResource(id = drawable),//R.drawable.p1plastic),
                     contentScale = ContentScale.Crop,
                     contentDescription = null,
                     modifier = Modifier
                             .size(56.dp)
                 )
                 Text(
-                    stringResource(id = R.string.windPower),
+                    stringResource(id = text),//R.string.windPower),
                     modifier = Modifier.padding(horizontal = 16.dp)
                 )
             }
