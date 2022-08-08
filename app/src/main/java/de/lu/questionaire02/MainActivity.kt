@@ -31,13 +31,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             Questionaire02Theme {
                 // A surface container using the 'background' color from the theme
-                Surface(
+                /*Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
-                ) {
+                ) {*/
                        StartScreen()
 
-                    }
+                    //}
                 }
             }
         }
@@ -46,15 +46,9 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun StartScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = Modifier
-            //.background(DeepBlue)
-            .fillMaxSize()
-    ) {
-
         Column(
-            //horizontalAlignment = Alignment.CenterHorizontally,
-            //modifier = modifier.fillMaxSize()
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = modifier.fillMaxSize()
         )
         {
 
@@ -62,7 +56,7 @@ fun StartScreen(modifier: Modifier = Modifier) {
             MiddleMenu()
         }
     }
-}
+
 
 
 
@@ -87,16 +81,11 @@ fun TopMenu(modifier: Modifier = Modifier) {
         modifier = Modifier
             .paddingFromBaseline(top = 24.dp, bottom = 8.dp)
     )
-    //FavoriteCollectionCard()
+
 }
 
 }
-@Composable
-fun MiddleMenu222(modifier: Modifier = Modifier) {
-    Text(
-        "stringResource()llllllllllllllllllllllllllllll"
-    )
-}
+
 
 @Composable
 fun MiddleMenu(modifier: Modifier = Modifier) {
@@ -105,12 +94,16 @@ fun MiddleMenu(modifier: Modifier = Modifier) {
         //modifier = modifier.fillMaxSize()
     ) {
         Surface(
+            shape = MaterialTheme.shapes.small,
             modifier = Modifier.fillMaxSize()
         ) {
-            Row {
+            Row (Modifier.width(192.dp)){
                 Image(
                     painter = painterResource(id = R.drawable.p1),
-                    contentDescription = null
+                    contentScale = ContentScale.Crop,
+                    contentDescription = null,
+                    modifier = Modifier
+                            .size(56.dp)
                 )
                 Text(
                     stringResource(id = R.string.windPower)
