@@ -11,6 +11,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -54,17 +55,40 @@ fun StartScreen(modifier: Modifier = Modifier) {
             modifier = modifier.fillMaxSize()
         )
         {
-
-            TopMenu(drawable = R.drawable.p1food, text = R.string.windPower)
+            TopMenuLazyRow()
+            //TopMenu(drawable = R.drawable.p1food, text = R.string.windPower)
             MiddleMenu(drawable = R.drawable.p1plastic, text = R.string.windPower)
         }
     }
 
-
+private val topMenuData = listOf(
+    R.drawable.p1plastic to R.string.Plastic,
+    R.drawable.p1food to R.string.food,
+    R.drawable.basicIncome to R.string.basicIncome,
+    R.drawable.p1climateWarmin to R.string.climateWarming,
+    R.drawable.p1humanrights to R.string.humanrights,
+    R.drawable.p1desertification to R.string.desertification,
+    R.drawable.p1recycling to R.string.recycling,
+    R.drawable.p1trees to R.string.Trees,
+    R.drawable.p1water to R.string.water,
+    R.drawable.p1windpower to R.string.windPower
+).map{DrawableStringPair(it.first, it.second)}
 
 
 @Composable
-fun TopMenu(@DrawableRes drawable: Int,
+fun TopMenuLazyRow(
+    modifier: Modifier = Modifier
+){
+    LazyRow(modifier){
+        items(topMenuData){item->
+            TopMenuItem(drawable = item.drawble, text = item.text)
+        }
+    }
+
+}
+
+@Composable
+fun TopMenuItem(@DrawableRes drawable: Int,
             @StringRes text: Int,
             modifier: Modifier = Modifier) {
     Column(
