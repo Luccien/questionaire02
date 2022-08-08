@@ -73,15 +73,17 @@ private val topMenuData = listOf(
 ).map{DrawableStringPair(it.first, it.second)}
 
 
-//private val TESTII:DrawableStringPair = DrawableStringPair(R.drawable.p1trees, R.string.Trees)
-//private val myDrawableStringPair:DrawableStringPair2 = DrawableStringPair2(R.drawable.p1trees, R.string.Trees)
 
 
-        @Composable
+@Composable
 fun TopMenuLazyRow(
     modifier: Modifier = Modifier
 ){
-    LazyRow(modifier){
+    LazyRow(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        contentPadding = PaddingValues(horizontal = 16.dp),
+        modifier = modifier)
+    {
         items(topMenuData){item->
             TopMenuItem(drawable = item.drawable, text = item.text)
         }
@@ -112,9 +114,7 @@ fun TopMenuItem(@DrawableRes drawable: Int,
         modifier = Modifier
             .paddingFromBaseline(top = 24.dp, bottom = 8.dp)
     )
-
 }
-
 }
 
 
