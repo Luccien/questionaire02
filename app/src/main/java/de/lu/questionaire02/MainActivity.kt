@@ -100,7 +100,7 @@ fun MiddleMenu(modifier: Modifier = Modifier) {
         ) {
             Row (
                 verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.width(150.dp)){
+                modifier = Modifier.width(170.dp)){
                 Image(
                     painter = painterResource(id = R.drawable.p1plastic),
                     contentScale = ContentScale.Crop,
@@ -109,7 +109,8 @@ fun MiddleMenu(modifier: Modifier = Modifier) {
                             .size(56.dp)
                 )
                 Text(
-                    stringResource(id = R.string.windPower)
+                    stringResource(id = R.string.windPower),
+                    modifier = Modifier.padding(horizontal = 16.dp)
                 )
             }
 
