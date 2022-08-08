@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,13 +32,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             Questionaire02Theme {
                 // A surface container using the 'background' color from the theme
-                /*Surface(
+                Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {*/
+                    color = Color.Gray//MaterialTheme.colors.col
+                ) {
                        StartScreen()
 
-                    //}
+                    }
                 }
             }
         }
@@ -89,17 +90,19 @@ fun TopMenu(modifier: Modifier = Modifier) {
 
 @Composable
 fun MiddleMenu(modifier: Modifier = Modifier) {
-    Column(
+    /*Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         //modifier = modifier.fillMaxSize()
-    ) {
+    ) {*/
         Surface(
             shape = MaterialTheme.shapes.small,
-            modifier = Modifier.fillMaxSize()
+            //modifier = Modifier.fillMaxSize() othervise all surface after that will be white
         ) {
-            Row (Modifier.width(192.dp)){
+            Row (
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier.width(150.dp)){
                 Image(
-                    painter = painterResource(id = R.drawable.p1),
+                    painter = painterResource(id = R.drawable.p1plastic),
                     contentScale = ContentScale.Crop,
                     contentDescription = null,
                     modifier = Modifier
@@ -111,7 +114,7 @@ fun MiddleMenu(modifier: Modifier = Modifier) {
             }
 
         }
-    }
+    //}
 }
 
 
